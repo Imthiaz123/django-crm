@@ -9,6 +9,6 @@ P.S. I had some difficulty in auto-generating emp-no initially as I've tried UUI
 
 URLS (if using localhost):
 "/users" -> User create
-"/users/<id no>" -> User Update/Delete/Read
+"/users/'id'" -> User Update/Delete/Read
 "/employees" -> Employee create
-"/employees/<id no>" -> employees Update/Delete/Read
+"/employees/'id'" -> employees Update/Delete/Read
