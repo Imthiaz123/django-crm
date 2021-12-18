@@ -14,11 +14,17 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
+from django.contrib.auth.views import LoginView
 from django.urls import path
 from crm_empapp import views
+from knox import views as knox_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('register/', views.RegisterAPI.as_view(), name='register'),
+    path('login/', knox_views.LoginAPI.as_view(), name='login'),
+    path('logout/', knox_views.LogoutView.as_view(), name='logout'),
+    path('logoutall/', knox_views.LogoutAllView.as_view(), name='logoutall'),
     path('users', views.UserAPIView.as_view(), name='user-createlist'),
     path('users/<int:id>', views.UserDetailView().as_view(), name='user-view'),
     path('employees', views.EmployeeAPIView.as_view(), name='employee-createlist'),

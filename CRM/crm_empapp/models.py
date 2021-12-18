@@ -1,14 +1,9 @@
 from django.db import models
-import uuid
+from django.contrib.auth.models import AbstractUser
 
 
-class Users(models.Model):
-    name = models.CharField(max_length=50)
-    username = models.CharField(max_length=50)
-    email = models.EmailField()
+class User(AbstractUser):
     phone = models.CharField(max_length=50)
-    password1 = models.CharField(max_length=50)
-    password2 = models.CharField(max_length=50)
 
 
 class Employee(models.Model):
@@ -44,7 +39,7 @@ class Employee(models.Model):
         ("28", "West Bengal"),
     )
 
-    emp_no = models.CharField(max_length=50)
+    emp_no = models.AutoField(primary_key=True, max_length=50)
     designation = models.CharField(max_length=50)
     f_name = models.CharField(max_length=50)
     l_name = models.CharField(max_length=50)
